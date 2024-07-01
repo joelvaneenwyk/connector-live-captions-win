@@ -1,15 +1,15 @@
-# get-livecaptions-cpp
+# get-live-captions-cpp
 
 Get real time content of Windows System APP "Live Captions" [win+ctrl+L], write content into file. using c++/winrt, asio
 
-check slibing project [get-livecaptions-rs](https://github.com/corbamico/get-livecaptions-rs)
+check sibling project [get-live-captions-rs](https://github.com/corbamico/get-live-captions-rs)
 
 ## Usage
 
 ```cmd
-Usage: get-livecatpions file
+Usage: get-live-captions file
 Options:
-  file            filename, to save content of live catpions running.
+  file            filename, to save content of live captions running.
 ```
 
 ## UIAutomation
