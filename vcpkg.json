@@ -1,5 +1,5 @@
 {
-  "name": "main",
+  "name": "get-live-captions",
   "version-string": "latest",
   "dependencies": [
     "asio",

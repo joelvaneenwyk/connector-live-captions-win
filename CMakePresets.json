@@ -11,8 +11,12 @@
       "displayName": "Ninja Multi-Config",
       "description": "Configure with vcpkg toolchain and generate Ninja project files for all configurations",
       "binaryDir": "${sourceDir}/.build/${presetName}",
-      "generator": "Ninja Multi-Config",
-      "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      "installDir": "${sourceDir}/.build/install",
+      "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+      "generator": "Visual Studio 17 2022",
+      "toolset": {
+        "value": "v143"
+      }
     }
   ],
   "buildPresets": [
