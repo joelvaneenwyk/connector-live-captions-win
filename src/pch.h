@@ -1,14 +1,16 @@
 #pragma once
 
 #define ASIO_NO_WIN32_LEAN_AND_MEAN
-#include <sdkddkver.h>
 #include <asio.hpp>
-#include <windows.h>
 #include <chrono>
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <sdkddkver.h>
 
-#include <winrt/windows.ui.uiautomation.h>
+#define _WIN32_WINNT 0x0601
+#include <windows.h>
+
+#include <argparse/argparse.hpp>
 #include <uiautomation.h>
 #include <wil/resource.h>
-#include <argparse/argparse.hpp>
+#include <winrt/windows.ui.uiautomation.h>

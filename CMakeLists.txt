@@ -18,4 +18,9 @@ project(${PROJECT_NAME})
 add_executable(${PROJECT_NAME} src/main.cpp src/pch.cpp)
 target_precompile_headers(${PROJECT_NAME} PRIVATE src/pch.h)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE asio::asio Microsoft::CppWinRT argparse::argparse WIL::WIL)
+target_link_libraries(${PROJECT_NAME}
+        PRIVATE asio::asio
+                argparse::argparse
+                WIL::WIL
+                Microsoft::CppWinRT RuntimeObject.lib
+)
