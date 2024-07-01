@@ -1,0 +1,11 @@
+version: "0.2"
+ignorePaths: []
+dictionaryDefinitions:
+  - name: connector-live-captions
+    path: ./config/connector-live-captions.dict
+    addWords: true
+dictionaries:
+  - connector-live-captions
+words: []
+ignoreWords: []
+import: []
