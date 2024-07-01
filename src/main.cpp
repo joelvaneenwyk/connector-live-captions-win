@@ -1,9 +1,15 @@
+/**
+* @file main.cpp
+* @brief Write the content of the LiveCaptions system program on Windows to a file.
+*/
+
 #include "pch.h"
+
+#include <wil/resource.h>
 
 #include <iomanip>
 #include <string>
 #include <wrl.h>
-// #include <com.h>
 
 using namespace winrt;
 using namespace winrt::Windows::Foundation;
@@ -12,12 +18,6 @@ using namespace winrt::Windows::UI::UIAutomation;
 #define VERSION_STRING "0.1.240505"
 
 std::string get_current_time() {
-  // [TIPS]c+20 runtime is too expensive, + 500k for following implement.
-  //
-  // auto const time = std::chrono::current_zone()
-  //     ->to_local(std::chrono::system_clock::now());
-  // return std::format("{:%Y/%m/%d %X}", time);
-
   auto now = std::chrono::system_clock::now();
   std::time_t now_c = std::chrono::system_clock::to_time_t(now);
 
@@ -103,19 +103,11 @@ public:
       file.close();
     }
   }
-  static bool is_livecaption_running() {
+  static bool is_live_caption_running() {
     return FindWindowW(L"LiveCaptionsDesktopWindow", nullptr) != NULL;
   }
 };
 
-// void usage()
-// {
-//     std::cerr << "Write all content of LiveCaptions Windows System Program
-//     into file, continually.Ctrl-C to exit." << std::endl; std::cerr <<
-//     "Usage: get-livecatpions file" << std::endl; std::cerr << "Options:" <<
-//     std::endl; std::cerr << "  file            filename, to save content of
-//     live catpions running." << std::endl; exit(1);
-// }
 bool touch_file(const std::string &filename) {
   std::ofstream file(filename, std::ios::app);
   auto ret = file.is_open();
@@ -143,7 +135,7 @@ int main(int argc, char *argv[]) {
     program.parse_args(argc, argv);
     strFileName = program.get<std::string>("--output");
 
-    if (!Engine::is_livecaption_running()) {
+    if (!Engine::is_live_caption_running()) {
       std::cerr << "[Error]Live Captions is not running." << std::endl;
       exit(1);
     }
@@ -173,7 +165,7 @@ int main(int argc, char *argv[]) {
             timer_10s.expires_after(asio::chrono::seconds(10));
             co_await timer_10s.async_wait(asio::use_awaitable);
             // std::cout << "every 10s" <<std::endl;
-            if (!Engine::is_livecaption_running()) {
+            if (!Engine::is_live_caption_running()) {
               std::cerr << "[Info]LiveCaptions isn't running. exit."
                         << std::endl;
               io_context.stop();

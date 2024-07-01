@@ -16,7 +16,8 @@ find_package(cppwinrt CONFIG REQUIRED)
 set(PROJECT_NAME get-live-captions)
 project(${PROJECT_NAME})
 add_executable(${PROJECT_NAME} src/main.cpp src/pch.cpp)
-target_precompile_headers(${PROJECT_NAME} PRIVATE src/pch.h)
+target_include_directories(${PROJECT_NAME} PRIVATE include/)
+target_precompile_headers(${PROJECT_NAME} PRIVATE include/pch.h)
 
 target_link_libraries(${PROJECT_NAME}
         PRIVATE asio::asio

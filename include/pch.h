@@ -1,3 +1,8 @@
+/**
+* @file pch.h
+* @brief Precompiled header file.
+ */
+
 #pragma once
 
 #define ASIO_NO_WIN32_LEAN_AND_MEAN
@@ -7,6 +12,7 @@
 #include <iostream>
 #include <sdkddkver.h>
 
+#define WIN32_LEAN_AND_MEAN
 #define _WIN32_WINNT 0x0601
 #include <windows.h>
 
