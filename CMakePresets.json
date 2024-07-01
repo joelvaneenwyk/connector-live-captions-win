@@ -10,7 +10,7 @@
       "name": "ninja-multi-vcpkg",
       "displayName": "Ninja Multi-Config",
       "description": "Configure with vcpkg toolchain and generate Ninja project files for all configurations",
-      "binaryDir": "${sourceDir}/builds/${presetName}",
+      "binaryDir": "${sourceDir}/.build/${presetName}",
       "generator": "Ninja Multi-Config",
       "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake"
     }
