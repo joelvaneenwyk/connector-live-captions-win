@@ -1,5 +1,6 @@
 {
   "version": 8,
+  "$schema": "https://raw.githubusercontent.com/Kitware/CMake/master/Help/manual/presets/schema.json",
   "cmakeMinimumRequired": {
     "major": 3,
     "minor": 21,
@@ -7,31 +8,27 @@
   },
   "configurePresets": [
     {
-      "name": "ninja-multi-vcpkg",
-      "displayName": "Ninja Multi-Config",
-      "description": "Configure with vcpkg toolchain and generate Ninja project files for all configurations",
-      "binaryDir": "${sourceDir}/.build/${presetName}",
-      "installDir": "${sourceDir}/.build/install",
-      "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+      "name": "windows-x64",
+      "displayName": "Visual Studio 2022",
+      "description": "Visual Studio 17 2022 (x86_x64 architecture)",
       "generator": "Visual Studio 17 2022",
-      "toolset": {
-        "value": "v143"
-      }
+      "toolset": "host=x64",
+      "architecture": "x64",
+      "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+      "binaryDir": "${sourceDir}/.build/vscode/${presetName}"
     }
   ],
   "buildPresets": [
     {
-      "name": "ninja-vcpkg-debug",
-      "configurePreset": "ninja-multi-vcpkg",
-      "displayName": "Build (Debug)",
-      "description": "Build with Ninja/vcpkg (Debug)",
+      "name": "windows-x64-debug",
+      "displayName": "Visual Studio 17 2022 (x86_x64) - Debug",
+      "configurePreset": "windows-x64",
       "configuration": "Debug"
     },
     {
-      "name": "ninja-vcpkg-release",
-      "configurePreset": "ninja-multi-vcpkg",
-      "displayName": "Build (Release)",
-      "description": "Build with Ninja/vcpkg (Release)",
+      "name": "windows-x64-release",
+      "displayName": "Visual Studio 17 2022 (x86_x64) - Release",
+      "configurePreset": "windows-x64",
       "configuration": "Release"
     }
   ]
