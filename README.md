@@ -1,8 +1,8 @@
 # get-live-captions-cpp
 
-Get real time content of Windows System APP "Live Captions" [win+ctrl+L], write content into file. using c++/winrt, asio
+Get real time content of Windows System APP "Live Captions" [win+ctrl+L], write content into file. using `c++`/`winrt`, `asio`.
 
-check sibling project [get-live-captions-rs](https://github.com/corbamico/get-live-captions-rs)
+See related [connector-live-captions-rs](https://github.com/joelvaneenwyk/connector-live-captions-rs) for the Rust implementation.
 
 ## Usage
 

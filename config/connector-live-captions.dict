@@ -1,5 +1,6 @@
 # Custom Dictionary Words
 argparse
+asio
 buildsystems
 captions
 DCMAKE
@@ -12,3 +13,4 @@ sfilename
 TASKFILE
 toolset
 vcpkg
+winrt
