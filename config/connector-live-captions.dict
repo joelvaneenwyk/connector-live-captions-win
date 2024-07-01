@@ -1,8 +1,14 @@
 # Custom Dictionary Words
 argparse
-catpions
+buildsystems
+captions
+DCMAKE
 livecaption
-livecatpions
+livecaptions
 metavar
+MSBUILD
 prebuffer
 sfilename
+TASKFILE
+toolset
+vcpkg
