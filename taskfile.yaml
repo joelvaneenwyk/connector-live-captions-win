@@ -1,0 +1,25 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  MSBUILD: "C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/MSBuild.exe"
+  BUILD_DIR: "{{ .TASKFILE_DIR }}/.build"
+  CMAKE_DIR: "{{ .BUILD_DIR }}/cmake/task"
+
+tasks:
+  default:
+    cmds:
+      - task: build
+
+  build:
+    cmds:
+      - cmd: git submodule update --init --recursive
+        ignore_error: true
+      - cmd: |
+          cmd.exe /d /c rmdir /q /s "{{ fromSlash .CMAKE_DIR }}"
+        ignore_error: true
+      - cmd: |
+          cmake -B "{{ fromSlash .CMAKE_DIR }}" -S "{{ fromSlash .TASKFILE_DIR }}" -DCMAKE_TOOLCHAIN_FILE="{{ joinPath .TASKFILE_DIR "vcpkg/scripts/buildsystems/vcpkg.cmake" | fromSlash }}"
+      - cmd: |
+          cmake --build "{{ fromSlash .CMAKE_DIR }}"
